@@ -1,15 +1,26 @@
 import { motion } from "framer-motion";
 
 export default function HeroText() {
-
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     section?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div className="absolute inset-0 z-10 flex items-center justify-center">
-      <div className="max-w-3xl text-center px-6">
+    <div className="absolute inset-0 flex items-center justify-center">
+
+      {/* Mobile background shape */}
+      <div className="absolute inset-0 md:hidden overflow-hidden">
+        <div
+          className="absolute top-28 left-1/2 -translate-x-1/2 
+                     w-[320px] h-[320px] rounded-full 
+                     bg-gradient-to-br from-white/10 via-white/5 to-transparent 
+                     blur-3xl"
+        />
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-3xl text-center px-6">
 
         {/* Name */}
         <motion.p
@@ -26,7 +37,7 @@ export default function HeroText() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl md:text-6xl font-semibold text-white leading-tight"
+          className="text-3xl sm:text-4xl md:text-6xl font-semibold text-white leading-snug"
         >
           Full-Stack Web Developer
         </motion.h1>
@@ -36,7 +47,7 @@ export default function HeroText() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35 }}
-          className="mt-3 text-lg md:text-xl text-gray-300"
+          className="mt-3 text-base sm:text-lg md:text-xl text-gray-300"
         >
           Building scalable, animated web applications
         </motion.h2>
@@ -46,7 +57,7 @@ export default function HeroText() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mt-6 text-gray-400"
+          className="mt-6 text-sm sm:text-base text-gray-400 max-w-xl mx-auto"
         >
           I design and develop complete web solutions — from clean, interactive
           user interfaces to secure backend systems, APIs, payments, and
@@ -58,18 +69,18 @@ export default function HeroText() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-10 flex justify-center gap-6"
+          className="mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center"
         >
           <button
             onClick={() => scrollToSection("projects")}
-            className="px-6 py-3 bg-white text-black rounded-full text-sm"
+            className="w-full sm:w-auto px-6 py-3 bg-white text-black rounded-full text-sm"
           >
             View Work
           </button>
 
           <button
             onClick={() => scrollToSection("contact")}
-            className="px-6 py-3 border border-gray-500 text-white rounded-full text-sm"
+            className="w-full sm:w-auto px-6 py-3 border border-gray-500 text-white rounded-full text-sm"
           >
             Let’s Collaborate
           </button>
