@@ -30,7 +30,7 @@ const stack = [
 
 export default function SystemStack() {
   return (
-    <section id="stack" className="pt-20 pb-14 px-6 bg-[#0B0D10]">
+    <section id="skills" className="pt-20 pb-14 px-6 bg-[#0B0D10]">
       <div className="max-w-5xl mx-auto">
 
         {/* Section Label */}

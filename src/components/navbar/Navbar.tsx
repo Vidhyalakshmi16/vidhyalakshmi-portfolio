@@ -9,30 +9,32 @@ const links = [
 ];
 
 export default function Navbar() {
-  const [visible, setVisible] = useState(false);
   const [open, setOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => {
-      setVisible(window.scrollY > 80);
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    setOpen(false); // close menu after click (mobile)
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+    });
+    setOpen(false);
   };
+
+  // Close menu on resize (important polish)
+  useEffect(() => {
+    const closeOnResize = () => {
+      if (window.innerWidth >= 768) setOpen(false);
+    };
+    window.addEventListener("resize", closeOnResize);
+    return () => window.removeEventListener("resize", closeOnResize);
+  }, []);
 
   return (
     <motion.header
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: visible ? 1 : 0, y: visible ? 0 : -10 }}
-      transition={{ duration: 0.4 }}
-      className="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur pointer-events-none"
+      initial={{ y: 0 }}
+      animate={{ y: 0 }}
+      className="fixed top-0 left-0 w-full z-50 bg-transparent"
     >
-      <nav className="w-full px-6 md:px-16 h-16 flex items-center justify-between pointer-events-auto">
+      {/* Navbar */}
+      <nav className="w-full h-16 px-6 md:px-16 flex items-center justify-between">
 
         {/* Logo */}
         <button
@@ -57,11 +59,25 @@ export default function Navbar() {
 
         {/* Mobile Hamburger */}
         <button
-          onClick={() => setOpen(!open)}
-          className="md:hidden text-white text-2xl"
+          onClick={() => setOpen((prev) => !prev)}
+          className="md:hidden flex flex-col gap-1.5"
           aria-label="Toggle menu"
         >
-          ☰
+          <span
+            className={`w-6 h-0.5 bg-white transition ${
+              open ? "rotate-45 translate-y-2" : ""
+            }`}
+          />
+          <span
+            className={`w-6 h-0.5 bg-white transition ${
+              open ? "opacity-0" : ""
+            }`}
+          />
+          <span
+            className={`w-6 h-0.5 bg-white transition ${
+              open ? "-rotate-45 -translate-y-2" : ""
+            }`}
+          />
         </button>
       </nav>
 
@@ -72,10 +88,10 @@ export default function Navbar() {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-black/90 backdrop-blur px-6 pb-4"
+            transition={{ duration: 0.25 }}
+            className="md:hidden bg-[#0B0D10] border-t border-white/10 px-6 pb-6"
           >
-            <div className="flex flex-col gap-4 pt-4 text-gray-300">
+            <div className="flex flex-col gap-5 pt-5 text-gray-300">
               {links.map((link) => (
                 <button
                   key={link.id}
