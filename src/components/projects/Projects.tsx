@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 export default function Projects() {
   return (
-    <section id="projects" className="pt-20 pb-14 px-6 bg-[#0B0D10]">
+    <section id="projects" className="pt-20 pb-14 px-6 bg-[#0B0D10] scroll-mt-20">
       <div className="max-w-5xl mx-auto">
 
         <p className="text-xs tracking-[0.3em] text-gray-400 mb-6">

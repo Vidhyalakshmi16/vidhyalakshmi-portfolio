@@ -3,7 +3,7 @@ import { fadeUp } from "../../animations/fade";
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-32 px-6 bg-[#0B0D10] border-t border-white/10">
+    <section id="contact" className="py-32 px-6 bg-[#0B0D10] border-t border-white/10 scroll-mt-20">
       <div className="max-w-4xl mx-auto text-center">
 
         {/* Heading */}

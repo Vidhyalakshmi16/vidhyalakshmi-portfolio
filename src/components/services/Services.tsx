@@ -57,7 +57,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="pt-20 pb-14 px-6 bg-[#0B0D10]">
+    <section id="services" className="pt-20 pb-14 px-6 bg-[#0B0D10] scroll-mt-20">
       <div className="max-w-6xl mx-auto">
 
         {/* Section Heading */}

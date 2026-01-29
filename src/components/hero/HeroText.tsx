@@ -7,6 +7,7 @@ export default function HeroText() {
 
   return (
     <div>
+      {/* Name */}
       <motion.p
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -16,6 +17,7 @@ export default function HeroText() {
         VIDHYALAKSHMI
       </motion.p>
 
+      {/* Title */}
       <motion.h1
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -25,26 +27,39 @@ export default function HeroText() {
         Full-Stack Web Developer
       </motion.h1>
 
+      {/* Desktop description */}
       <motion.p
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.7, delay: 0.25 }}
-        className="mt-4 text-base text-gray-300 max-w-xl"
+        className="mt-4 text-base text-gray-300 max-w-xl hidden sm:block"
       >
-        I build complete web applications — clean interfaces, solid backend
-        systems, APIs, integrations, and performance-focused experiences.
+        I build complete web applications — from clean, interactive interfaces
+        to scalable backend systems and real-world integrations.
       </motion.p>
 
+      {/* Mobile description */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.7, delay: 0.25 }}
+        className="mt-4 text-base text-gray-300 sm:hidden"
+      >
+        I build scalable web applications with clean UI and solid backend systems.
+      </motion.p>
+
+      {/* CTAs */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.7, delay: 0.4 }}
-        className="mt-10 flex flex-col sm:flex-row gap-4 sm:gap-6"
+        className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6"
       >
+        {/* Primary CTA */}
         <button
           onClick={() => scrollToSection("projects")}
           className="
-            px-7 py-3.5
+            px-6 py-3
             rounded-full
             bg-white
             text-black
@@ -57,10 +72,12 @@ export default function HeroText() {
           View Work
         </button>
 
+        {/* Secondary CTA — desktop only */}
         <button
           onClick={() => scrollToSection("contact")}
           className="
-            px-7 py-3.5
+            hidden sm:block
+            px-6 py-3
             rounded-full
             border border-white/30
             text-white
@@ -73,7 +90,6 @@ export default function HeroText() {
           Contact
         </button>
       </motion.div>
-
-          </div>
+    </div>
   );
 }

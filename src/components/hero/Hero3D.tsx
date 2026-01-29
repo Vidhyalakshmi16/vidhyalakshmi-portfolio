@@ -19,9 +19,10 @@ export default function Hero3D() {
         className="
           relative z-10
           overflow-visible
-          w-[180px] h-[180px]
+          w-[250px] h-[250px]
           sm:w-[220px] sm:h-[220px]
           md:w-[620px] md:h-[620px]
+          mb-6 sm:mb-0
         "
       >
         <iframe
