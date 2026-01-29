@@ -49,47 +49,45 @@ export default function HeroText() {
       </motion.p>
 
       {/* CTAs */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.4 }}
-        className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6"
-      >
-        {/* Primary CTA */}
-        <button
-          onClick={() => scrollToSection("projects")}
-          className="
-            px-6 py-3
-            rounded-full
-            bg-white
-            text-black
-            text-sm
-            font-medium
-            hover:bg-gray-200
-            transition
-          "
-        >
-          View Work
-        </button>
+<motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.7, delay: 0.4 }}
+  className="mt-8 flex flex-col sm:flex-row gap-3 sm:gap-6"
+>
+  <button
+    onClick={() => scrollToSection("projects")}
+    className="
+      px-6 py-3
+      rounded-full
+      bg-white
+      text-black
+      text-sm
+      font-medium
+      hover:bg-gray-200
+      transition
+    "
+  >
+    View Work
+  </button>
 
-        {/* Secondary CTA — desktop only */}
-        <button
-          onClick={() => scrollToSection("contact")}
-          className="
-            hidden sm:block
-            px-6 py-3
-            rounded-full
-            border border-white/30
-            text-white
-            text-sm
-            font-medium
-            hover:border-white
-            transition
-          "
-        >
-          Contact
-        </button>
-      </motion.div>
+  <button
+    onClick={() => scrollToSection("contact")}
+    className="
+      px-6 py-3
+      rounded-full
+      border border-white/30
+      text-white
+      text-sm
+      font-medium
+      hover:border-white
+      transition
+    "
+  >
+    Let's Collabrate
+  </button>
+</motion.div>
+
     </div>
   );
 }
